@@ -18,8 +18,8 @@ for current_student in student_dict['student']:
 print(all_alphabet_dict)
 
 user_input = input("Enter a Name to get the Phonetic Alphabet: ")
-alphabet_dict = {}
+alphabet_list = []
 while user_input != "Exit":
-    alphabet_dict = {letter:data.code[data.letter == letter.upper()].iloc[0] for letter in user_input}
-    print(alphabet_dict)
+    alphabet_list = [data.code[data.letter == letter.upper()].iloc[0] for letter in user_input]
+    print(alphabet_list)
     user_input = input("Enter a Name to get the Phonetic Alphabet: ")
