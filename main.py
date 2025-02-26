@@ -2,7 +2,7 @@ import pandas
 
 
 student_dict = {
-    "student": ["Angela", "James", "Lily"], 
+    "student": ["Edward", "Steven", "John"], 
     "score": [56, 76, 98]
 }
 
@@ -15,11 +15,15 @@ for current_student in student_dict['student']:
     all_alphabet_dict.append(alphabet_dict)
 
 # List of all Names with phonetic alphabet.
-print(all_alphabet_dict)
+# print(all_alphabet_dict)
 
 user_input = input("Enter a Name to get the Phonetic Alphabet: ")
 alphabet_list = []
 while user_input != "Exit":
-    alphabet_list = [data.code[data.letter == letter.upper()].iloc[0] for letter in user_input]
-    print(alphabet_list)
+    try:
+        alphabet_list = [data.code[data.letter == letter.upper()].iloc[0] for letter in user_input]
+    except IndexError:
+        alphabet_list = "Sorry, only letters in the alphabet please."
+    finally:
+        print(alphabet_list)
     user_input = input("Enter a Name to get the Phonetic Alphabet: ")
